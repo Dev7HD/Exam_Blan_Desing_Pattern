@@ -1,4 +1,6 @@
-package ma.dev7hd.figure;
+package ma.dev7hd.stratigies;
+
+import ma.dev7hd.figure.Dessin;
 
 /**
  * Interface définissant un contrat pour les algorithmes de traitement.

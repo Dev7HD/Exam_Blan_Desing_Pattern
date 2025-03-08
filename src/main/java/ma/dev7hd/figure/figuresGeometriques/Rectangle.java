@@ -1,16 +1,17 @@
-package ma.dev7hd.figure;
+package ma.dev7hd.figure.figuresGeometriques;
+
+import ma.dev7hd.figure.Parametrage;
 
 public class Rectangle implements Figure {
-    private Point coinSupGauche;
-    private double hauteur, largeur;
-    private Parametrage parametrage;
+    private final Point coinSupGauche;
+    private final double hauteur;
+    private final double largeur;
+    private int epaisseurContour, couleurContour, couleurRemplissage;
 
-    public Rectangle(Point coin, double l, double h, Parametrage p) {
+    public Rectangle(Point coin, double l, double h) {
         this.coinSupGauche = coin;
         this.largeur = l;
         this.hauteur = h;
-        this.parametrage = p;
-        p.addObserver(this); // S'abonner aux mises à jour du paramétrage
     }
 
     @Override
@@ -31,6 +32,9 @@ public class Rectangle implements Figure {
     @Override
     public void update(Parametrage p) {
         // Mettre à jour les attributs du rectangle en fonction du paramétrage
+        this.epaisseurContour = p.getEpaisseurContour();
+        this.couleurContour = p.getCouleurContour();
+        this.couleurRemplissage = p.getCouleurRemplissage();
         System.out.println("Rectangle mis à jour avec le paramétrage : " + p);
     }
 }

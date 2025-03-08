@@ -1,17 +1,15 @@
 package ma.dev7hd.figure;
 
+import ma.dev7hd.figure.figuresGeometriques.Figure;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Groupe implements Figure {
-    private List<Figure> figures = new ArrayList<>();
+    private final List<Figure> figures = new ArrayList<>();
 
     public void ajouterFigure(Figure figure) {
         figures.add(figure);
-    }
-
-    public void supprimerFigure(Figure figure) {
-        figures.remove(figure);
     }
 
     @Override

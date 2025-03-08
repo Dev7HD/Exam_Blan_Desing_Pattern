@@ -1,15 +1,15 @@
-package ma.dev7hd.figure;
+package ma.dev7hd.figure.figuresGeometriques;
+
+import ma.dev7hd.figure.Parametrage;
 
 public class Cercle implements Figure {
-    private Point centre;
-    private double rayon;
-    private Parametrage parametrage;
+    private final Point centre;
+    private final double rayon;
+    private int epaisseurContour, couleurContour, couleurRemplissage;
 
-    public Cercle(Point centre, double rayon, Parametrage p) {
+    public Cercle(Point centre, double rayon) {
         this.centre = centre;
         this.rayon = rayon;
-        this.parametrage = p;
-        p.addObserver(this); // S'abonner aux mises à jour du paramétrage
     }
 
     @Override
@@ -30,6 +30,9 @@ public class Cercle implements Figure {
     @Override
     public void update(Parametrage p) {
         // Mettre à jour les attributs du cercle en fonction du paramétrage
+        this.epaisseurContour = p.getEpaisseurContour();
+        this.couleurContour = p.getCouleurContour();
+        this.couleurRemplissage = p.getCouleurRemplissage();
         System.out.println("Cercle mis à jour avec le paramétrage : " + p);
     }
 }

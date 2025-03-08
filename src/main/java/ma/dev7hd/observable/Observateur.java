@@ -1,7 +1,7 @@
 package ma.dev7hd.observable;
 
-import java.util.Observable;
+import ma.dev7hd.figure.Parametrage;
 
-public class Observateur {
-    void update(Observable o, Object arg) {}
+public interface Observateur {
+    void update(Parametrage p);
 }

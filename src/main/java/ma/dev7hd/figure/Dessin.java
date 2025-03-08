@@ -1,10 +1,13 @@
 package ma.dev7hd.figure;
 
+import ma.dev7hd.figure.figuresGeometriques.Figure;
+import ma.dev7hd.stratigies.TraitementStrategy;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Dessin {
-    private List<Figure> figures = new ArrayList<>();
+    private final List<Figure> figures = new ArrayList<>();
     private TraitementStrategy strategy;
 
     /**

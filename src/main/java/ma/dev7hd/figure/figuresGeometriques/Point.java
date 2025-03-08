@@ -1,4 +1,4 @@
-package ma.dev7hd.figure;
+package ma.dev7hd.figure.figuresGeometriques;
 
 public class Point {
     private int x;

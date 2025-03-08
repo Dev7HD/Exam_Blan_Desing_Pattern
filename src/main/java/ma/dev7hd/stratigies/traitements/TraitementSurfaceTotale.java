@@ -1,8 +1,8 @@
-package ma.dev7hd.stratigies;
+package ma.dev7hd.stratigies.traitements;
 
 import ma.dev7hd.figure.Dessin;
-import ma.dev7hd.figure.Figure;
-import ma.dev7hd.figure.TraitementStrategy;
+import ma.dev7hd.figure.figuresGeometriques.Figure;
+import ma.dev7hd.stratigies.TraitementStrategy;
 
 /**
  * Algorithme de traitement : calcule la surface totale de toutes les figures du dessin.

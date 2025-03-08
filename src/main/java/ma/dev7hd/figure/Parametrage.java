@@ -1,17 +1,26 @@
 package ma.dev7hd.figure;
 
+import ma.dev7hd.observable.Observateur;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Parametrage {
     private static Parametrage instance;
-    private List<Figure> observers = new ArrayList<>();
+    private final List<Observateur> observers = new ArrayList<>();
 
-    private int epaisseurContour = 1;
-    private String couleurContour = "Noir";
-    private String couleurRemplissage = "Blanc";
+    private int epaisseurContour;
+    private int couleurContour;
+    private int couleurRemplissage;
 
-    private Parametrage() {}
+    @Override
+    public String toString() {
+        return "epaisseurContour=" + epaisseurContour +
+                ", couleurContour=" + couleurContour +
+                ", couleurRemplissage=" + couleurRemplissage ;
+    }
+
+    public Parametrage() {}
 
     public static Parametrage getInstance() {
         if (instance == null) {
@@ -20,34 +29,37 @@ public class Parametrage {
         return instance;
     }
 
-    public void addObserver(Figure figure) {
-        observers.add(figure);
-    }
-
-    public void removeObserver(Figure figure) {
-        observers.remove(figure);
+    public void addObserver(Observateur o) {
+        observers.add(o);
     }
 
     public void notifyObservers() {
-        for (Figure figure : observers) {
-            figure.update(this);
+        for (Observateur o : observers) {
+            o.update(this);
         }
     }
 
-    public String getCouleurRemplissage() {
-        return couleurRemplissage;
-    }
-
-    public void setCouleurRemplissage(String couleurRemplissage) {
+    public void changerParametres(int epaisseur, int couleurContour, int couleurRemplissage){
+        this.epaisseurContour = epaisseur;
+        this.couleurContour = couleurContour;
         this.couleurRemplissage = couleurRemplissage;
         notifyObservers();
     }
 
-    public String getCouleurContour() {
+    public int getCouleurRemplissage() {
+        return couleurRemplissage;
+    }
+
+    public void setCouleurRemplissage(int couleurRemplissage) {
+        this.couleurRemplissage = couleurRemplissage;
+        notifyObservers();
+    }
+
+    public int getCouleurContour() {
         return couleurContour;
     }
 
-    public void setCouleurContour(String couleurContour) {
+    public void setCouleurContour(int couleurContour) {
         this.couleurContour = couleurContour;
         notifyObservers();
     }
